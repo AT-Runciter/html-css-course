@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Контактна інформація</title>
+</head>
+
+<body>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            background-image: url('Vienna_Opera.png');
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-attachment: fixed;
+        }
+
+        header {
+            display: flex;
+            flex-flow: row nowrap;
+            justify-content: flex-start;
+            align-items: center;
+            float: right;
+            margin-right: 40px;
+        }
+
+        .menu {
+            flex-grow: 1;
+        }
+
+        .menu ul {
+            display: flex;
+            flex-flow: row nowrap;
+            margin: 2px 0 0;
+            padding: 0;
+            font-size: 16px;
+            line-height: 18px;
+            list-style: none;
+            list-style: decimal;
+
+        }
+
+        .menu li {
+            margin-right: 20px;
+        }
+
+        .menu li:last-child {
+            margin-right: 0;
+        }
+
+        .menu a,
+        .menu .tickets {
+            display: block;
+            padding: 8px 10px;
+            text-transform: uppercase;
+            letter-spacing: .27em;
+        }
+
+        .menu a {
+            color: white;
+            text-decoration: none;
+            border-left: 1px solid white;
+            border-bottom: 1px solid white;
+        }
+
+        .menu span {
+            text-decoration: none;
+            padding: 20px;
+        }
+
+        .menu .tickets {
+            color: #fff;
+            background-color: red;
+            border-radius: 0px 8px 0px 8px;
+        }
+
+        .container {
+            max-width: 600px;
+            margin-top: 50px;
+            padding: 20px 20px 20px 20px;
+            position: absolute;
+            float: left;
+            border-left: 1px solid white;
+            border-bottom: 1px solid white;
+        }
+
+        .content {
+            width: 500px;
+            height: 500px;
+            background-color: white;
+            border-radius: 0px 30px 0px 30px;
+            opacity: 0.9;
+            color: black;
+            padding: 15px;
+        }
+
+        .content .icon {
+            width: 100px;
+            height: 100px;
+            margin: 5px;
+            float: left;
+            display: flex;
+        }
+
+        .content2 ul {
+            margin-top: 35px;
+        }
+
+        .content2 li {
+            padding-left: 100px;
+            justify-content: center;
+            margin: 10px 10px 10px 0;
+        }
+
+        .content li {
+            list-style: none;
+            text-indent: -1em;
+        }
+
+        .content li::before {
+            content: '\25ba';
+            padding-right: 5px;
+            color: red;
+        }
+    </style>
+
+    <header>
+        <nav class="menu">
+            <ul>
+                <li><a href="/locations">Локації</a></li>
+                <li><a href="/performances">Вистави</a></li>
+                <li><span class="tickets">Квитки</span></li>
+                <li><a href="/about">Про театр</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div itemscope itemtype="http://schema.org/Person" class="container">
+        <div class="content">
+            <h1>Контактна інформація</h1>
+            <p itemprop="affiliation" itemscope itemtype="http://schema.org/Organization"></p>
+
+            <h3>Адреса опери</h3>
+            <ul>
+                <li itemprop="address"><strong>Локація:</strong> вул. Незалежності 1, м. Київ, 01001</li>
+                <li itemprop="telephone"><strong>Телефон:</strong> +380 44 123 4567</li>
+                <li itemprop="email"><strong>Email:</strong> <a href="mailto:info@example.com">info@example.com</a></li>
+            </ul>
+
+            <h2 itemprop="description">Маєте нетривіальний сценарій? Зверніться до нас!</h2>
+            <h3 itemprop="name">Художній керівник Микола</h3>
+            <p itemprop="description">Допоможе втілити в життя проєкт будь-якої складності</p>
+            <a href=""><img itemprop="image" class="icon" src="n1.png" alt="nikolai"></a>
+            <div class="content2">
+                <ul>
+                    <li itemprop="address"><strong>Адреса:</strong> вул. Незалежності 1, м. Київ, 01001</li>
+                    <li itemprop="telephone"><strong>Телефон:</strong> +380 44 123 4567</li>
+                    <li itemprop="email"><strong>Email:</strong> <a href="mailto:info@example.com">info@example.com</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
