@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            background-image: url('kyiv.png');
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-attachment: fixed;
+        }
+
+        .container {
+            margin: 0 auto;
+        }
+
+        .menu {
+            display: flex;
+            justify-content: space-between;
+            text-align: center;
+        }
+
+        h1,
+        h2 {
+            text-shadow: 2px 0 2px brown,
+                0 2px 2px brown,
+                -2px 0 2px brown,
+                0 -2px 2px brown;
+        }
+
+        h1,
+        a,
+        p,
+        h2 {
+            text-decoration: none;
+            text-align: center;
+            color: white;
+            font-family: Arial;
+        }
+
+        h2 {
+            padding-top: 25px;
+            padding-bottom: 50px;
+        }
+
+        h1 {
+            padding-bottom: 25px;
+            padding-top: 80px;
+        }
+
+        h3 {
+            text-align: center;
+        }
+
+        a {
+            display: flex;
+            text-align: left;
+            margin: 10px;
+            font-weight: bold;
+            text-decoration: none;
+            color: white;
+        }
+
+        span {
+            padding: 10px;
+        }
+
+        .flexColumn {
+            display: flex;
+            flex-direction: row;
+            text-align: center;
+            justify-content: left;
+            align-items: center;
+        }
+
+        section {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .section-content {
+            display: flex;
+            width: 100%;
+            border-radius: 25px;
+            color: black;
+            background-color: white;
+            font-family: Arial;
+            margin-bottom: 25px;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            text-align: center;
+        }
+
+        .horizontal-section-content {
+            display: flex;
+            width: 100%;
+            padding: 10px;
+            border-radius: 25px;
+            font-family: Arial;
+            justify-content: center;
+            flex-direction: row;
+            flex-flow: row wrap;
+            align-items: stretch;
+        }
+
+        .vertical-section-content {
+            display: flex;
+            width: 100%;
+            border-radius: 25px;
+            font-family: Arial;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .section-color {
+            display: flex;
+            flex-direction: column;
+            width: 80%;
+            opacity: 0.9;
+        }
+
+        .section-content:nth-child(even) {
+            background-color: grey;
+            color: white;
+        }
+
+        button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 50px;
+            width: 140px;
+            font-size: 14px;
+            color: gray;
+            border-radius: 50px;
+            border: 1px solid gray;
+            margin: 0 auto;
+            cursor: pointer;
+            text-align: center;
+            font-family: arial;
+        }
+
+        .button:nth-child(even) {
+            background: gray;
+            color: white;
+            border-color: white;
+        }
+
+        .button:hover {
+            background-color: white;
+            color: gray;
+            border: 2px solid gray;
+        }
+
+        .button2:hover {
+            cursor: pointer;
+            background-color: gray;
+            border: 2px solid white;
+            color: white;
+            padding: 20px;
+        }
+
+        .divPurchace {
+            /*ціна и кнопка замовити*/
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            flex-direction: row;
+            align-items: center;
+            padding: 10px;
+            flex: 1;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 0 auto;
+            padding: 0px 15px 25px 15px;
+        }
+
+        nav a {
+            line-height: 21px;
+            display: inline-block;
+            transition: .15s linear;
+        }
+
+        nav a:hover {
+            text-decoration: none;
+            transform: scale(1.1);
+            text-shadow: 2px 0 2px brown,
+                0 2px 2px brown,
+                -2px 0 2px brown,
+                0 -2px 2px brown;
+        }
+
+        #more {
+            display: none;
+        }
+
+        .box {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            text-align: center;
+        }
+
+        .ul-style {
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
+            flex-direction: column;
+            text-align: left;
+        }
+
+        .image {
+            width: 400px;
+            height: 300px;
+            display: flex;
+            overflow: hidden;
+            object-fit: cover;
+        }
+
+        #arrow {
+            width: 0;
+            height: 0;
+            border-left: 15px solid transparent;
+            border-right: 15px solid transparent;
+            border-bottom: 25px solid white;
+        }
+    </style>
+
+    <header>
+        <div class="container menu">
+            <div style="display: flex; flex:1"></div>
+            <div style="display: flex; flex:3">
+                <nav style="flex:1">
+                    <a href="#">Локації</a>
+                    <a href="#">Послуги</a>
+                    <a href="#">Ціни</a>
+                    <a href="#">Замовити</a>
+                </nav>
+            </div>
+            <div style="display: flex; flex:1; flex-direction: column;">
+                <a href="tel:38 000 000 00 00"
+                    style="font-weight: 600; color: white; text-align: right; flex-direction: column;">+38 000 000 00
+                    00</a>
+            </div>
+        </div>
+    </header>
+
+    <h1>Подорож магічним Києвом</h1>
+    <h2>Дивись розташування та обирай найкращий готель</h2>
+
+    <section>
+        <div class="section-color">
+            <div class="section-divColumn">
+                <div class="section-content">
+                    <div class="horizontal-section-content">
+                        <div class="box" style="flex: 2;">
+                            <a href=""><img class="image" src="khreshchatyk.png" alt="hotel1"></a>
+                        </div>
+                        <div class="box" style="flex: 2;">
+                            <h3>"Хрещатик"</h3>
+                            <ul class="ul-style">
+                                <li>Локація у самому серці міста</li>
+                                <li>Найкращі краєвиди з вікна</li>
+                                <li>Комфортні умови для відновлення сил після довгих прогулянок</li>
+                            </ul>
+                        </div>
+                        <div class="divPurchace"><span>100$</span> <button class="button" id="btnName1"
+                                onclick="readMore('dots1','more1','btnName1')">Подивитися на
+                                мапі</button>
+                        </div>
+                    </div>
+                    <div class="vertical-section-content">
+                        <span id="dots1" style="padding: 0%;"></span>
+                        <span id="more1" style="display: none">
+                            <iframe
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2540.442859361076!2d30.523376315731362!3d50.45147747947555!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40d4ce505b8be8cd%3A0x6fbde9b021ab61dd!2z0KXRgNC10YnQsNGC0LjQug!5e0!3m2!1suk!2sua!4v1678460233758!5m2!1suk!2sua"
+                                width="800" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                                referrerpolicy="no-referrer-when-downgrade">
+                            </iframe>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="section-content">
+                    <div class="horizontal-section-content">
+                        <div class="box" style="flex: 2;">
+                            <a href=""><img class="image" src="theatre-boutique.png" alt="hotel2"></a>
+                        </div>
+                        <div class="box" style="flex: 2;">
+                            <h3>"Theatre Boutique"</h3>
+                            <ul class="ul-style">
+                                <li>Локація у самому серці міста</li>
+                                <li>Найкращі краєвиди з вікна</li>
+                                <li>Комфортні умови для відновлення сил після довгих прогулянок</li>
+                            </ul>
+                        </div>
+                        <div class="divPurchace"><span>120$</span> <button class="button2" id="btnName2"
+                                onclick="readMore('dots2', 'more2','btnName2')">Подивитися на
+                                мапі</button>
+                        </div>
+                    </div>
+                    <div class="vertical-section-content">
+                        <span id="dots2" style="padding: 0%;"></span>
+                        <span id="more2" style="display: none">
+                            <iframe
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d13372.711452137646!2d30.50622765742323!3d50.44141878910627!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40d4ce57a5ff5c21%3A0xaf39279e0dc4fa3d!2sTheatre%20Boutique%20Apart-Hotel!5e0!3m2!1suk!2sua!4v1678460418772!5m2!1suk!2sua"
+                                width="800" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                                referrerpolicy="no-referrer-when-downgrade">
+                            </iframe>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="section-content">
+                    <div class="horizontal-section-content">
+                        <div class="box" style="flex: 2;">
+                            <a href=""><img class="image" src="radisson-blu.png" alt="hotel3"></a>
+                        </div>
+                        <div class="box" style="flex: 2;">
+                            <h3>"Radisson Blu"</h3>
+                            <ul class="ul-style">
+                                <li>Локація у самому серці міста</li>
+                                <li>Найкращі краєвиди з вікна</li>
+                                <li>Комфортні умови для відновлення сил після довгих прогулянок</li>
+                            </ul>
+                        </div>
+                        <div class="divPurchace"><span>140$</span> <button class="button" id="btnName3"
+                                onclick="readMore('dots3','more3','btnName3')">Подивитися на
+                                мапі</button>
+                        </div>
+                    </div>
+                    <div class="vertical-section-content">
+                        <span id="dots3" style="padding: 0%;"></span>
+                        <span id="more3" style="display: none">
+                            <iframe
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2540.4412109324753!2d30.50752165137773!3d50.45150817937476!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40d4ce5eab083fa1%3A0xc053edcbb31aaa7!2sRadisson%20Blu%20Hotel!5e0!3m2!1suk!2sua!4v1678460963159!5m2!1suk!2sua"
+                                width="800" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                                referrerpolicy="no-referrer-when-downgrade">
+                            </iframe>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="section-content">
+                    <div class="horizontal-section-content">
+                        <div class="box" style="flex: 2;">
+                            <a href=""><img class="image" src="ukraine.png" alt="hotel4"></a>
+                        </div>
+                        <div class="box" style="flex: 2;">
+                            <h3>"Україна"</h3>
+                            <ul class="ul-style">
+                                <li>Локація у самому серці міста</li>
+                                <li>Найкращі краєвиди з вікна</li>
+                                <li>Комфортні умови для відновлення сил після довгих прогулянок</li>
+                            </ul>
+                        </div>
+                        <div class="divPurchace"><span>160$</span> <button class="button2" id="btnName4"
+                                onclick="readMore('dots4','more4','btnName4')">Подивитися на
+                                мапі</button>
+                        </div>
+                    </div>
+                    <div class="vertical-section-content">
+                        <span id="dots4" style="padding: 0%;"></span>
+                        <span id="more4" style="display: none">
+                            <iframe
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2540.5990706792586!2d30.52508421573138!3d50.44856817947514!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40d4ce53dbbdc391%3A0x71aa7c1dce2058dc!2z0JPQvtGC0LXQu9GMINCj0LrRgNCw0ZfQvdCw!5e0!3m2!1suk!2sua!4v1678461554112!5m2!1suk!2sua"
+                                width="800" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                                referrerpolicy="no-referrer-when-downgrade">
+                            </iframe>
+                        </span>
+                    </div>
+                </div>
+            </div>
+    </section>
+
+    <footer>
+        <div class="container menu">
+            <div id="arrow"></div> <a href="#">Вгору</a>
+
+            <nav class="social-logo">
+                <a href="https://www.instagram.com/"><img src="instagram.png" alt="instagram"></a>
+                <a href="https://www.facebook.com"><img src="facebook.png" alt="facebook"></a>
+                <a href="https://twitter.com/"><img src="twitter.png" alt="twitter"></a>
+            </nav>
+            <a href="tel:+8 000 000 00 00" style="font-weight: 600; color: white">+38 000 000 00 00</a>
+        </div>
+    </footer>
+
+</body>
+
+<script>
+
+    function readMore(dotsName, moreName, btnName) {
+        let dots = document.getElementById(dotsName);
+        let more = document.getElementById(moreName);
+        let btn = document.getElementById(btnName);
+
+        if (dots.style.display === "none") {
+            dots.style.display = "inline";
+            btn.innerHTML = "Подивитися на мапі";
+            more.style.display = "none";
+        } else {
+            dots.style.display = "none";
+            btn.innerHTML = "Згорнути";
+            more.style.display = "inline";
+        }
+    }
+
+</script>
+
+</html>
