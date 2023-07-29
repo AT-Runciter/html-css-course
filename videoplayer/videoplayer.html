@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+</head>
+
+<body>
+
+    <style>
+        body {
+
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-attachment: fixed;
+            overflow: hidden;
+        }
+
+        .bg {
+            position: absolute;
+            z-index: -1;
+            left: -10px;
+            top: -10px;
+            right: -10px;
+            bottom: -10px;
+            filter: blur(3px);
+            background: url('tlo.png') no-repeat center;
+            background-size: cover;
+        }
+
+        .content {
+            text-align: center;
+            z-index: 1;
+            margin: 100px;
+        }
+
+        .controls {
+            margin: auto;
+            width: 50%;
+            padding: 10px;
+        }
+    </style>
+
+    <div class="bg"></div>
+
+    <div class="content">
+        <h1 class="animate__animated animate__zoomInDown" ;
+            style="color:white; font-family:'Courier New', Courier, monospace; letter-spacing: .27em; text-shadow: 4px 1px 2px fuchsia, 0 0 1em fuchsia; color: white;">
+            Welcome to the sinema</h1>
+
+        <video
+            style="display: flex; border: 2px solid white; margin: auto; width: 50%; padding: 10px; box-shadow: 4px 1px 2px fuchsia, 0 0 1em fuchsia;"
+            id="myVideo"></video>
+
+        <div id="controls" class="controls">
+            <button id="playButton">Play</button>
+            <button id="pauseButton">Pause</button>
+            <input type="range" id="volumeSlider" min="0" max="1" step="0.1" value="1">
+            <button id="backwardButton">10s Backward</button>
+            <button id="forwardButton">10s Forward</button>
+            <input type="range" id="progressSlider" min="0" max="100" value="0">
+            <button id="fullscreenButton">Fullscreen</button>
+
+            <button style="margin-top: 20px;" id="video1Button">Video 1</button>
+            <button style="margin-top: 20px;" id="video2Button">Video 2</button>
+            <button style="margin-top: 20px;" id="video3Button">Video 3</button>
+        </div>
+
+    </div>
+
+    <script>
+        const video = document.getElementById('myVideo');
+        const playButton = document.getElementById('playButton');
+        const pauseButton = document.getElementById('pauseButton');
+        const volumeSlider = document.getElementById('volumeSlider');
+        const backwardButton = document.getElementById('backwardButton');
+        const forwardButton = document.getElementById('forwardButton');
+        const progressSlider = document.getElementById('progressSlider');
+        const position = localStorage.getItem('videoPosition');
+        const videoName = localStorage.getItem('videoName');
+
+        window.addEventListener("load", (event) => {
+            event.preventDefault();
+            video.currentTime = localStorage.getItem('videoPosition')
+            video.src = localStorage.getItem('videoName');
+            video.load();
+        });
+
+        // Встановлюємо значення гучності відео
+        volumeSlider.addEventListener('input', function () {
+            video.volume = volumeSlider.value;
+        });
+
+        // Змінюємо позицію відео на 10 секунд назад
+        backwardButton.addEventListener('click', function () {
+            video.currentTime -= 10;
+        });
+
+        // Змінюємо позицію відео на 10 секунд вперед
+        forwardButton.addEventListener('click', function () {
+            video.currentTime += 10;
+        });
+
+        // Змінюємо позицію відео через повзунок
+        progressSlider.addEventListener('input', function () {
+            video.currentTime = (video.duration / 100) * progressSlider.value;
+        });
+
+        // Оновлюємо повзунок прогресу відео
+        video.addEventListener('timeupdate', function () {
+            const progress = (video.currentTime / video.duration) * 100;
+            progressSlider.value = progress;
+        });
+
+        // Запускаємо відео
+        playButton.addEventListener('click', function () {
+            video.play();
+        });
+
+        // Пауза відео
+        pauseButton.addEventListener('click', function () {
+            video.pause();
+        });
+
+        // Зберігаємо поточну позицію відео в локальному сховищі
+        window.addEventListener('beforeunload', function () {
+            localStorage.setItem('videoPosition', video.currentTime);
+            localStorage.setItem('videoName', video.src);
+        });
+
+        // Відновлюємо позицію відео після перезавантаження сторінки
+        window.addEventListener('load', function () {
+            if (position) {
+                video.currentTime = position;
+            }
+        });
+
+        // Запускаємо відео знову, коли воно закінчується
+        video.addEventListener('ended', function () {
+            video.currentTime = 0;
+            video.play();
+        });
+
+        // Розширити відео на весь екран
+        const fullscreenButton = document.getElementById('fullscreenButton');
+
+        fullscreenButton.addEventListener('click', function () {
+            if (video.requestFullscreen) {
+                video.requestFullscreen();
+            } else if (video.webkitRequestFullscreen) {
+                video.webkitRequestFullscreen();
+            } else if (video.mozRequestFullScreen) {
+                video.mozRequestFullScreen();
+            }
+        });
+
+        let video1Button = document.getElementById('video1Button');
+
+        const video1 = document.querySelector('a[href="Neo Tokyo - Cyberpunk Mix.mp4"]');
+        const video2 = document.querySelector('a[href="turn me on (i am chesumasuta).mp4"]');
+        const video3 = document.querySelector('a[href="STARMADE - A Synthwave Mix.mp4"]');
+
+        video1Button.addEventListener('click', function (event) {
+            event.preventDefault();
+            video.src = "Neo Tokyo - Cyberpunk Mix.mp4";
+            video.load();
+            video.play();
+        });
+
+        video2Button.addEventListener('click', function (event) {
+            event.preventDefault();
+            video.src = "turn me on (i am chesumasuta).mp4";
+            video.load();
+            video.play();
+        });
+
+        video3Button.addEventListener('click', function (event) {
+            event.preventDefault();
+            video.src = "STARMADE - A Synthwave Mix.mp4";
+            video.load();
+            video.play();
+        });
+
+    </script>
+
+
+</body>
+
+</html>
