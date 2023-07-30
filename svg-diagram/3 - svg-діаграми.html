@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+
+        // дані для діаграми
+        const data = [20, 35, 45, 55, 70];
+
+        // розміри SVG елементу
+        const width = 500;
+        const height = 300;
+
+        // створюємо SVG елемент
+        const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+        svg.setAttribute("width", width);
+        svg.setAttribute("height", height);
+
+        // створюємо бари діаграми
+        const barWidth = 50;
+        const barMargin = 10;
+        const barHeightScale = height / Math.max(...data);
+        const barGroup = document.createElementNS("http://www.w3.org/2000/svg", "g");
+
+        barGroup.setAttribute("transform", `translate(${(width - ((barWidth + barMargin) * data.length)) / 2}, 0)`);
+
+        // задаємо різні кольори кожному бару
+        const colors = ["red", "green", "blue", "orange", "purple"];
+        data.forEach((value, index) => {
+            const bar = document.createElementNS("http://www.w3.org/2000/svg", "rect");
+            bar.setAttribute("x", index * (barWidth + barMargin));
+            bar.setAttribute("y", height - (value * barHeightScale));
+            bar.setAttribute("width", barWidth);
+            bar.setAttribute("height", value * barHeightScale);
+            bar.setAttribute("fill", colors[index]);
+            barGroup.appendChild(bar);
+        });
+
+        // додаємо групу барів до SVG елементу
+        svg.appendChild(barGroup);
+
+        // додаємо SVG елемент до сторінки
+        document.body.appendChild(svg);
+
+    </script>
+
+</body>
+
+</html>
