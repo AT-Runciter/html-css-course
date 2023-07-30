@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>My Images</title>
+    <style>
+        .image {
+            border: none;
+            width: 500px;
+            height: 400px;
+        }
+
+        .image.highlighted {
+            border: 5px solid red;
+        }
+    </style>
+</head>
+
+<body>
+    <img class="image" src="city1.png">
+    <img class="image" src="city2.png">
+    <img class="image" src="city3.png">
+</body>
+
+<script>
+    const images = document.getElementsByTagName("img");
+
+    for (let i = 0; i < images.length; i++) {
+        console.log(images[i].src);
+    }
+
+    let currentIndex = 0;
+
+    setInterval(() => {
+        const images = document.getElementsByClassName("image");
+
+        // Видаляємо попередній елемент з підсвіткою
+        if (currentIndex > 0) {
+            images[currentIndex - 1].classList.remove("highlighted");
+        }
+        else {
+            images[images.length - 1].classList.remove("highlighted");
+        }
+
+        // Додаємо рамку поточному елементу
+        images[currentIndex].classList.add("highlighted");
+
+        // Збільшуємо індекс для наступного елементу
+        currentIndex = (currentIndex + 1) % images.length;
+    }, 1000);
+
+</script>
+
+</html>
