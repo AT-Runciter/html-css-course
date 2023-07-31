@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<style>
+    #canada-flag {
+        border: 1px solid black;
+    }
+</style>
+
+<body>
+
+    <canvas id='canada-flag' width="1800" height="1300"></canvas>
+
+    <script>
+        const canvas = document.getElementById('canada-flag');
+        const ctx = canvas.getContext('2d');
+
+        //начало первой части большого листа
+
+        ctx.beginPath();
+        ctx.moveTo(900, 1000);
+        ctx.lineTo(900, 250);
+      
+        ctx.bezierCurveTo(
+            950, 360,
+            960, 380,
+            970, 370
+        );
+
+        ctx.lineTo(1020, 325);
+
+        ctx.bezierCurveTo(
+            980, 490,
+            990, 510,
+            1010, 495
+        );
+
+        ctx.lineTo(1100, 400);
+
+        ctx.bezierCurveTo(
+            1110, 440,
+            1115, 450,
+            1130, 450
+        );
+
+        ctx.lineTo(1200, 415);
+     
+        ctx.lineTo(1160, 525);
+        ctx.bezierCurveTo(
+            1160, 530,
+            1150, 535,
+            1160, 545
+        );
+        ctx.lineTo(1150, 540);
+
+        ctx.lineTo(1170, 550);
+
+        ctx.lineTo(1200, 565);
+        ctx.lineTo(1025, 690);
+        ctx.bezierCurveTo(
+            1025, 690,
+            1005, 700,
+            1015, 710
+        );
+        
+        ctx.lineTo(1015, 710);
+        ctx.lineTo(1050, 760);
+        ctx.bezierCurveTo(
+            918, 730,
+            912, 715,
+            906, 730
+        );
+        
+        ctx.lineTo(918, 1000);
+        ctx.lineTo(900, 1000);
+
+        //вторая часть большого листа
+
+        ctx.fillStyle = 'red'; //заливка большого листа
+
+        ctx.moveTo(900, 1000);
+        ctx.lineTo(900, 250);
+  
+        ctx.bezierCurveTo(
+            850, 360,
+            840, 380,
+            830, 370
+        );
+
+        ctx.lineTo(780, 325);
+
+        ctx.bezierCurveTo(
+            820, 490,
+            810, 510,
+            790, 495
+        );
+
+        ctx.lineTo(700, 400);
+
+        ctx.bezierCurveTo(
+            690, 440,
+            685, 450,
+            670, 450
+        );
+
+        ctx.lineTo(600, 415);
+       
+        ctx.lineTo(640, 525);
+        ctx.bezierCurveTo(
+            640, 530,
+            650, 535,
+            640, 545
+        );
+        ctx.lineTo(650, 540);
+
+        ctx.lineTo(630, 550);
+
+        ctx.lineTo(600, 565);
+        ctx.lineTo(775, 690);
+        ctx.bezierCurveTo(
+            775, 690,
+            795, 700,
+            785, 710
+        );
+        
+        ctx.lineTo(785, 710);
+        ctx.lineTo(750, 760);
+        ctx.bezierCurveTo(
+            882, 730,
+            888, 715,
+            894, 730
+        );
+       
+        ctx.lineTo(882, 1000);
+        ctx.lineTo(900, 1000);
+
+        ctx.closePath();
+        ctx.fill(); //конец второй части большого листа
+
+        // Flag part 1
+        ctx.fillStyle = 'red';
+
+        ctx.beginPath();
+        ctx.moveTo(200, 1100);
+        ctx.lineTo(200, 150);
+        ctx.bezierCurveTo(
+            200, 150,
+            375, 250,
+            550, 250
+        );
+        ctx.lineTo(550, 1200);
+        ctx.bezierCurveTo(
+            550, 1200,
+            375, 1200,
+            200, 1100
+        );
+        ctx.closePath();
+        ctx.fill();
+        // end flag part 1
+
+        // Flag part 2
+        ctx.fillStyle = 'red';
+
+        ctx.beginPath();
+        ctx.moveTo(1600, 1100);
+        ctx.bezierCurveTo(
+            1600, 1100,
+            1425, 1000,
+            1250, 1000
+        );
+        ctx.lineTo(1250, 100);
+        ctx.bezierCurveTo(
+            1250, 100,
+            1425, 100,
+            1600, 150
+        );
+        ctx.closePath();
+        ctx.fill();
+        // end flag part 2
+
+        //Flag part 3
+        ctx.beginPath();
+        ctx.moveTo(1250, 998);
+        ctx.quadraticCurveTo( /*керуюча точка*/ 1075, 1000, /*друга точка*/ 900, 1100);
+        ctx.lineWidth = 4;
+        ctx.strokeStyle = "red";
+        ctx.stroke();
+        ctx.closePath();
+
+        ctx.beginPath();
+        ctx.moveTo(900, 1100);
+        ctx.quadraticCurveTo( /*керуюча точка*/ 725, 1200, /*друга точка*/ 550, 1198);
+        ctx.lineWidth = 4;
+        ctx.strokeStyle = "red";
+        ctx.stroke();
+        ctx.closePath();
+
+        ctx.beginPath();
+        ctx.moveTo(550, 252);
+        ctx.quadraticCurveTo( /*керуюча точка*/ 725, 250, /*друга точка*/ 900, 150);
+        ctx.lineWidth = 4;
+        ctx.strokeStyle = "red";
+        ctx.stroke();
+        ctx.closePath();
+
+        ctx.beginPath();
+        ctx.moveTo(900, 150);
+        ctx.quadraticCurveTo( /*керуюча точка*/ 1075, 68, /*друга точка*/ 1250, 102);
+        ctx.lineWidth = 4;
+        ctx.strokeStyle = "red";
+        ctx.stroke();
+        ctx.closePath();
+        // end flag part 3
+
+        
+        ctx.closePath();
+
+        //ctx.fill();  //заливка дуги
+
+
+        //==================================
+        //==================================
+        //==================================
+
+
+        /*ctx.beginPath();  //маленький лист без закруглений
+                ctx.moveTo(300, 400);
+                ctx.lineTo(300, 150);
+                ctx.lineTo(320, 180);
+                ctx.lineTo(340, 175);
+                ctx.lineTo(330, 225);
+                ctx.lineTo(350, 200);
+                ctx.lineTo(360, 210);
+                ctx.lineTo(400, 205);
+                ctx.lineTo(390, 250);
+                ctx.lineTo(400, 255);
+                ctx.lineTo(340, 300);
+                ctx.lineTo(350, 320);
+                ctx.bezierCurveTo(
+                    306, 310,
+                    304, 305,
+                    302, 310
+                );
+                //ctx.lineTo(302,210); 
+                ctx.lineTo(306, 400);
+                ctx.lineTo(300, 400);
+        
+                ctx.fillStyle = '#333333';
+                //ctx.beginPath(); 
+                ctx.moveTo(300, 400);
+                ctx.lineTo(300, 150);
+                ctx.lineTo(280, 180);
+                ctx.lineTo(260, 175);
+                ctx.lineTo(270, 225);
+                ctx.lineTo(250, 200);
+                ctx.lineTo(240, 210);
+                ctx.lineTo(200, 205);
+                ctx.lineTo(210, 250);
+                ctx.lineTo(200, 255);
+                ctx.lineTo(260, 300);
+                ctx.lineTo(250, 320);
+                ctx.bezierCurveTo(
+                    294, 310,
+                    296, 305,
+                    298, 310
+                );
+                //ctx.lineTo(298,210); 
+                ctx.lineTo(294, 400);
+                ctx.lineTo(300, 400)
+        
+                ctx.closePath();
+                ctx.fill();*/
+
+        /*часть маленького листа без закруглений
+        
+        ctx.fillStyle = '#333333';
+         //ctx.beginPath();
+         ctx.moveTo(300, 300);
+         ctx.lineTo(300, 50);
+         ctx.lineTo(280, 80);
+         ctx.lineTo(260, 75);
+         ctx.lineTo(270, 125);
+         ctx.lineTo(250, 100);
+         ctx.lineTo(240, 110);
+         ctx.lineTo(200, 105);
+         ctx.lineTo(210, 150);
+         ctx.lineTo(200, 155);
+         ctx.lineTo(260, 200);
+         ctx.lineTo(250, 220);
+         ctx.bezierCurveTo(
+             294, 210,
+             296, 205,
+             298, 210
+         );
+         //ctx.lineTo(298,210);
+         ctx.lineTo(294, 300);
+         ctx.lineTo(300, 300);
+ 
+ 
+         ctx.closePath();
+         ctx.fill();*/
+
+    </script>
+</body>
+
+
+
+
+</html>
