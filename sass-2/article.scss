@@ -1,0 +1,32 @@
+$article-color: #fff;
+$article-padding: 20px;
+$article-border: 1px solid #ddd;
+$article-border-radius: 5px;
+
+@mixin prefix($property, $value) {
+  -webkit-#{$property}: $value;
+  -moz-#{$property}: $value;
+  -ms-#{$property}: $value;
+  -o-#{$property}: $value;
+  #{$property}: $value;
+}
+
+$font-sizes: 16px 18px 20px 22px 24px 26px;
+
+.article {
+  background-color: $article-color;
+  padding: $article-padding;
+  border: $article-border;
+  border-radius: $article-border-radius;
+
+  @for $i from 1 through 6 {
+    h#{$i} {
+      font-size: nth($font-sizes, $i);
+    }
+  }
+
+  p {
+    margin: 0;
+    @include prefix('hyphens', 'auto');
+  }
+}

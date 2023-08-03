@@ -1,0 +1,64 @@
+header {
+  display: flex;
+  background-color: #fff;
+  -webkit-border-bottom: 1px solid #ddd;
+  -moz-border-bottom: 1px solid #ddd;
+  -ms-border-bottom: 1px solid #ddd;
+  -o-border-bottom: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+  padding: 20px;
+}
+header .header-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 960px;
+  margin: 0 auto;
+}
+header .header-inner h1 {
+  margin: 0;
+  font-size: 48px;
+  font-weight: 900;
+  letter-spacing: 0.2em;
+}
+header .header-ul {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 960px;
+  margin: 0 auto;
+}
+header nav ul {
+  display: flex;
+}
+header nav ul li:nth-child(1) {
+  margin-right: 15px;
+  padding-right: 10px;
+}
+header nav ul li:nth-child(2) {
+  margin-right: 15px;
+  padding-right: 10px;
+}
+header nav ul li:nth-child(3) {
+  margin-right: 15px;
+  padding-right: 10px;
+}
+header nav ul li:nth-child(4) {
+  margin-right: 15px;
+  padding-right: 10px;
+}
+header nav ul li:nth-child(5) {
+  margin-right: 15px;
+  padding-right: 10px;
+}
+header nav ul :last-child {
+  margin-right: 0px;
+}
+header nav a {
+  -webkit-font-weight: 20px;
+  -moz-font-weight: 20px;
+  -ms-font-weight: 20px;
+  -o-font-weight: 20px;
+  font-weight: 20px;
+  text-decoration: none;
+}/*# sourceMappingURL=header.css.map */

@@ -1,0 +1,34 @@
+$nav-margin: 20px;
+$nav-font-weight: bold;
+$li-right-padding : 10px;
+$li-left-padding : 5px;
+
+
+@mixin prefix($property, $value) {
+  -webkit-#{$property}: $value;
+  -moz-#{$property}: $value;
+  -ms-#{$property}: $value;
+  -o-#{$property}: $value;
+  #{$property}: $value;
+}
+
+nav {
+  ul {
+    display: flex;
+
+    @for $i from 1 through 7 {
+      li:nth-child(#{$i}) {
+        margin-right: $nav-margin;
+        padding-right: $li-right-padding;
+      }
+    }
+
+    :last-child {
+      margin-right: 0px;
+    }
+  }
+
+  a {
+    @include prefix('font-weight', $nav-font-weight);
+  }
+}

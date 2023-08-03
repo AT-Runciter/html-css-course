@@ -1,0 +1,67 @@
+$primary-color: #fff;
+$border-color: #ddd;
+$nav-margin : 15px;
+$nav-font-weight : 20px;
+$li-right-padding : 10px;
+$li-left-padding : 5px;
+
+@mixin prefix($property, $value) {
+    -webkit-#{$property}: $value;
+    -moz-#{$property}: $value;
+    -ms-#{$property}: $value;
+    -o-#{$property}: $value;
+    #{$property}: $value;
+}
+
+header {
+    display: flex;
+    background-color: $primary-color;
+    @include prefix(border-bottom, 1px solid $border-color);
+    padding: 20px;
+
+    .header-inner {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        max-width: 960px;
+        margin: 0 auto;
+
+        h1 {
+            margin: 0;
+            font-size: 48px;
+            font-weight: 900;
+            letter-spacing: 0.2em;
+        }
+    }
+
+    .header-ul {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        max-width: 960px;
+        margin: 0 auto;
+    }
+
+    nav {
+        ul {
+          display: flex;
+    
+          @for $i from 1 through 5 {
+            li:nth-child(#{$i}) {
+              margin-right: $nav-margin;
+              padding-right: $li-right-padding;
+            }
+          }
+
+          :last-child {
+            margin-right: 0px;
+          }
+        }
+    
+        a {
+          @include prefix('font-weight', $nav-font-weight);
+          text-decoration: none;
+        }
+        
+      }
+}
