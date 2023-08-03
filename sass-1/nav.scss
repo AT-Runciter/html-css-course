@@ -1,0 +1,45 @@
+$nav-link-color: #333;
+$nav-link-background: #fff;
+$nav-link-hover-color: #fff;
+$nav-link-hover-background: #333;
+$nav-link-padding: 10px 20px;
+$nav-link-border-radius: 5px;
+$nav-link-transition: all 0.2s ease-in-out;
+$nav-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+
+@mixin browser-prefix($property, $value) {
+    -webkit-#{$property}: $value;
+    -moz-#{$property}: $value;
+    -ms-#{$property}: $value;
+    -o-#{$property}: $value;
+    #{$property}: $value;
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    margin-right: 20px;
+}
+
+nav a {
+    color: $nav-link-color;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: bold;
+    padding: $nav-link-padding;
+    margin-right: 10px;
+    border-radius: $nav-link-border-radius;
+    transition: $nav-link-transition;
+    background-color: $nav-link-background;
+    box-shadow: $nav-box-shadow;
+
+    @include browser-prefix('box-shadow', $nav-box-shadow);
+}
+
+nav a:hover {
+    background-color: $nav-link-hover-background;
+    color: $nav-link-hover-color;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+
+    @include browser-prefix('box-shadow', '0 4px 8px rgba(0, 0, 0, 0.3)');
+}

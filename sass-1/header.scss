@@ -1,0 +1,34 @@
+$header-bg-color: orange;
+$header-text-color: #fff;
+$header-height: 80px;
+
+@mixin flex($align, $justify) {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: $align;
+    -webkit-align-items: $align;
+    -ms-flex-align: $align;
+    align-items: $align;
+    -webkit-box-pack: $justify;
+    -webkit-justify-content: $justify;
+    -ms-flex-pack: $justify;
+    justify-content: $justify;
+}
+
+$header-hover-color: mix($header-bg-color, #fff, 50%);
+
+header {
+    width: 100%;
+    height: $header-height;
+    background-color: $header-bg-color;
+    color: $header-text-color;
+    @include flex(center, space-between);
+    padding: 0 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+
+    &:hover {
+        background-color: $header-hover-color;
+    }
+}

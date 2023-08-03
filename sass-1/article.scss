@@ -1,0 +1,47 @@
+$article-bg-color: #fff;
+$article-heading-color: #333;
+$article-text-color: #666;
+
+@mixin box-shadow($x: 0, $y: 2px, $blur: 4px, $color: rgba(0, 0, 0, 0.3)) {
+  -webkit-box-shadow: $x $y $blur $color;
+  -moz-box-shadow: $x $y $blur $color;
+  box-shadow: $x $y $blur $color;
+}
+
+$light-gray: #eee;
+$medium-gray: #ccc;
+$dark-gray: #999;
+
+article {
+  background-color: $article-bg-color;
+  @include box-shadow();
+  padding: 20px;
+  margin-bottom: 20px;
+
+  h1 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: $article-heading-color;
+  }
+
+  p {
+    font-size: 16px;
+    line-height: 1.5;
+    margin-bottom: 20px;
+    color: $article-text-color;
+
+    a {
+      color: $medium-gray;
+
+      &:hover {
+        color: $dark-gray;
+      }
+    }
+  }
+}
+
+
+
+
+
+

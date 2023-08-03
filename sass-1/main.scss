@@ -1,0 +1,32 @@
+// Змінні
+$primary-color: red;
+$secondary-color: purple;
+$border-radius: 15px;
+
+// Міксин для кросс-браузерної верстки
+@mixin box-sizing($value) {
+    -webkit-box-sizing: $value;
+    -moz-box-sizing: $value;
+    box-sizing: $value;
+}
+
+// Змішування кольорів
+$bg-color: mix($primary-color, $secondary-color, 50%);
+
+// Стилі для основного блоку контейнера
+main {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: $bg-color;
+    border-radius: $border-radius;
+    @include box-sizing(border-box);
+}
+
+
+@import 'header.scss'; 
+@import 'footer.scss';
+@import 'article.scss';
+@import 'aside.scss';
+@import 'nav.scss';
